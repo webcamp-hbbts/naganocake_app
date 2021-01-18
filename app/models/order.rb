@@ -16,4 +16,16 @@ class Order < ApplicationRecord
     belongs_to :customer
     has_many :order_items
     has_many :items, through: :order_items
+    
+    with_options presence: true do
+        validates :shipping_price
+        validates :billing
+        validates :name
+        validates :postcode
+        validates :address
+    end
+    
+    validates :payment_method, inclusion: {in: [0, 1]}
+    validates :status, inclusion: {in: [0, 1, 2, 3, 4]}
+
 end
