@@ -8,4 +8,17 @@ class Customer < ApplicationRecord
          has_many :orders
          has_many :cart_items
          has_many :items, through: :cart_items
+         
+    with_options presence: true do
+        validates :last_name
+        validates :first_name
+        validates :last_name_kana
+        validates :first_name_kana
+        validates :postcode
+        validates :address
+        validates :phone_number
+    end
+    
+    validates :is_deleted, inclusion: {in: [true, false]}
+
 end
