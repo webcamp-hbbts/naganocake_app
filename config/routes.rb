@@ -11,8 +11,34 @@ Rails.application.routes.draw do
     passwords:     'customers/passwords',
     registrations: 'customers/registrations'
   }
+
+  root to: "homes#top"
   
+  get "/homes/about" => "homes#about"
+  get "/homes/thanks" => "homes#thanks"
   
+  namespace :customer do
   
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:create, :index, :destroy]
+    resources :orders, only: [:new, :create, :index, :show]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
+    resource :customers, only: [:show, :destroy, :edit, :update]
+    
+    delete "/cart_items" => "cart_items#destroy_all"
+    get  "/cart_items/confirm" => "cart_items#confirm"
+    get  "/customers/confirm" => "customers#confirm"
+    
+  end
   
+  namespace :admin do
+
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]  
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_items, only: [:update]
+  
+  end
+
 end
