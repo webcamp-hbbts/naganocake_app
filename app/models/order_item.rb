@@ -6,4 +6,7 @@ class OrderItem < ApplicationRecord
         制作中: 2,
         制作完了: 3
     }
+    
+    belongs_to :item
+    belongs_to :order
 end
