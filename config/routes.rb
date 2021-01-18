@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
 
-  root to: "homes#top"
+  root to: "customer/homes#top"
   
   get "/homes/about" => "homes#about"
   get "/homes/thanks" => "homes#thanks"
