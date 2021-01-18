@@ -12,4 +12,8 @@ class Order < ApplicationRecord
         発送準備中: 3,
         発送済: 4,
     }
+    
+    belongs_to :customer
+    has_many :order_items
+    has_many :items, through: :order_items
 end
