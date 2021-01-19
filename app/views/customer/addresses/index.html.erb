@@ -1,0 +1,13 @@
+<h2>配送先登録／一覧</h2>
+
+
+フォーム
+
+
+<% @addresses.each do |address| %>
+    <%= address.postcode %>
+    <%= address.address %>
+    <%= address.name %>
+    <%= link_to "編集する" %>
+    <%= link_to "削除する", method: :delete %>
+<% end %>

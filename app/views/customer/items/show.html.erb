@@ -1,0 +1,12 @@
+
+
+<%= @item.name %>
+<%= @item.description %>
+
+    <%= ((@item.tax_exclude_price * 1.1).floor).to_s(:delimited) %> (<%= @item.tax_exclude_price.to_s(:delimited) %>)円
+
+フォーム
+ <!--form_with model: @item do |f| %>-->
+     <!--f.select :amount, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"]] %>-->
+     <!--f.submit "カートに入れる" %>-->
+ <!--end %>-->
