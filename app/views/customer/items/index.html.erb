@@ -1,0 +1,7 @@
+<h2>商品一覧</h2>全<%= @items.count %>件
+
+<% @items.each do |item| %>
+    <a href="customer/items/show"><%= item.image_id %></a>
+    <%= item.name %>
+    <%= item.tax_exclude_price %>
+<% end %>
