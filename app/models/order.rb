@@ -23,9 +23,8 @@ class Order < ApplicationRecord
         validates :name
         validates :postcode
         validates :address
+        validates :payment_method
+        validates :status
     end
     
-    validates :payment_method, inclusion: {in: [0, 1]}
-    validates :status, inclusion: {in: [0, 1, 2, 3, 4]}
-
 end
