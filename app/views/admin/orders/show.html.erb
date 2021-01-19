@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <table class="table table-borderless">
+        <h3><%= @cust.last_name %><%= @order.first_name %>の注文履歴詳細</h3>
+       <tbody>
+         <tr>
+           <td>購入者</td>
+           <td><%= @order.user %></td>
+         </tr>
+         <tr>
+           <td>注文日</td>
+           <td><%= @order.last_name %></td><td><%= @order.first_name %></td>
+         </tr>
+         <tr>
+           <td>配送先</td>
+            <td><%= @order.last_name_kana %></td><td><%= @order.first_name_kana %></td>
+         </tr>
+          <tr>
+           <td>支払い方法</td>
+            <td><%= @order.last_name_kana %></td><td><%= @order.first_name_kana %></td>
+          </tr>
+          <tr>
+           <td>注文ステータス</td>
+           <td>
+             <select class="form-control">
+               <option>Default select</option>
+               <option>Default select</option>
+             </select>
+            </td>
+            <td><button type="button" class="btn btn-success">Success</button></td>
+          </tr>
+       </tbody>
+     </table>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
