@@ -1,0 +1,48 @@
+<div class = "container">
+  <div class = "row">
+    <h3 class = "bg-light my-4 ml-5">商品編集</h3>
+  </div>
+  <div class = "row">
+    <div class = "mx-auto">
+      <div class = "form-horizontal">
+        <%= form_with model: @item, url: admin_item_path(@item.id), local: true do |f| %>
+          <div class = "form-group row">
+            <%= f.label :image, "商品画像", class: "col-5" %>
+            <%= f.attachment_field :image , class: "col-6"%>
+          </div>
+          <div class = "form-group row">
+            <%= f.label :name, "商品名", class: "col-5" %>
+            <%= f.text_field :name,  placeholder: "商品名",class: "col-6" %>
+          </div>
+          <div class = "form-group row">
+            <%= f.label :description, "商品説明", class: "col-5" %>
+            <%= f.text_area :description, placeholder: "ここに説明文を記述します", class: "col-6" %>
+          </div>
+          <div class = "form-group row">
+            <%= f.label :genre_id, "ジャンル", class: "col-5" %>
+            <%= f.collection_select :genre_id, @genres, :id, :name, class: "col-6" %>
+          </div>
+          <div class = "form-group row">
+            <%= f.label :tax_exclude_price, "税抜価格", class: "col-5" %>
+            <%= f.text_area :tax_exclude_price, placeholder: "1000", class: "col-6" %>円
+          </div>
+          <div class = "form-group row">
+            <%= f.label :is_active, "販売ステータス", class: "col-5" %>
+            <span class = "ml-4">
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, '販売中', value: true %>
+            </span>
+            <span>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, '販売停止中', value: false %>
+            </span>
+          </div>
+          <div class = "form-group">
+            <%= f.submit "変更を保存", class: "btn btn-success" %>
+          </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
