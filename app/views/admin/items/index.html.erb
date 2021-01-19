@@ -1,9 +1,16 @@
 <div class = "container">
-    <div class = "mx-auto">
-      <h3>商品一覧</h3>
-      <%= link_to new_admin_item_path do %>
-        <p>新規投稿</p>
-      <% end %>
+  <div class = "mx-auto">
+    <div class = "row mt-4">
+      <div class = "col-6">
+        <h3>商品一覧</h3>
+      </div>
+      <div class = "col-6">
+        <%= link_to new_admin_item_path do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class = "row">
       <table class = "table">
         <thead class = "thead-light">
           <tr>
@@ -31,4 +38,5 @@
         </tbody>
       </table>
     </div>
+  </div>
 </div>
