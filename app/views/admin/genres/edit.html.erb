@@ -1,9 +1,10 @@
 <div class = "container">
-  <div class = "row">
+  <h3 class = "ml-5 my-4">ジャンル編集</h3>
+  <div class = "form-group row">
     <%= form_with model: @genre, url: admin_genre_path(@genre.id), local: true do |f| %>
-      <%= f.label :name, "ジャンル名" %>
-      <%= f.text_field :name %>
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <span class = "col-4"><%= f.label :name, "ジャンル名" %></span>
+      <span><%= f.text_field :name, class: "mr-4" %></span>
+      <span><%= f.submit "変更を保存", class: "btn btn-success" %></span>
     <% end %>
   </div>
 </div>

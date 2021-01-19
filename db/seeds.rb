@@ -71,4 +71,3 @@ Admin.create!(
     email: "a@a",
     password: "012345",
     )
-    
