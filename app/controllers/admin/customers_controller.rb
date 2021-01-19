@@ -28,7 +28,8 @@ class Admin::CustomersController < ApplicationController
      :email,
      :postcode,
      :address,
-     :phone_number
+     :phone_number,
+     :is_deleted
      )
   end
 end

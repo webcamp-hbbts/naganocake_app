@@ -27,4 +27,8 @@ class Order < ApplicationRecord
         validates :status
     end
     
+    def total_order_amounts
+      
+    end
+    
 end
