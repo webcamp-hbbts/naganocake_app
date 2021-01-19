@@ -11,9 +11,11 @@ class Item < ApplicationRecord
         validates :name
         validates :description
         validates :tax_exclude_price
-        validates :image_id
+        validates :image
     end
     
-    validates :is_adtive, inclusion: {in: [true, false]}
+    validates :is_active, inclusion: {in: [true, false]}
+    
+    attachment :image
 
 end
