@@ -16,8 +16,11 @@
         <tr>
           <th><%= link_to admin_order_path(order.id) do %><%= order.created_at %><% end %></th>
           <td><%= order.name %></td>
-          <td><%= order.order_items.count %>
-          </td>
+              <% @sum = 0 %>
+            <% order.order_items.each do |order_item| %>
+               <% @sum += order_item.amount %>
+             <% end %>
+          <td><%= @sum %></td>
           <td><%= order.status %></td>
         </tr>
         <% end %>

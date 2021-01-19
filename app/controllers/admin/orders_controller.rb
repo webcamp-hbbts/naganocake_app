@@ -1,7 +1,12 @@
 class Admin::OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @path = Rails.application.routes.recognize_path(request.referer)
+    if @path[:controller] == "customer"
+      @orders = Order.where(current.user_id)
+     else
+      @orders = Order.all
+    end
   end
 
   def show

@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
-    
+
     enum payment_method: {
        クレジットカード: 0,
        銀行振り込み: 1,
-    } 
-    
+    }
+
     enum status: {
         入金待ち: 0,
         入金確認中: 1,
@@ -12,11 +12,11 @@ class Order < ApplicationRecord
         発送準備中: 3,
         発送済: 4,
     }
-    
+
     belongs_to :customer
     has_many :order_items
     has_many :items, through: :order_items
-    
+
     with_options presence: true do
         validates :shipping_price
         validates :billing
@@ -26,9 +26,9 @@ class Order < ApplicationRecord
         validates :payment_method
         validates :status
     end
-    
-    def total_order_amounts
-      
+
+    def total
+      self.order_items
     end
-    
+
 end
