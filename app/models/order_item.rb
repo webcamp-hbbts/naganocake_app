@@ -15,8 +15,7 @@ class OrderItem < ApplicationRecord
         validates :order_id
         validates :amount
         validates :tax_included_price
+        validates :production_status
     end
-    
-    validates :production_status, inclusion: {in: [0, 1, 2, 3]}
 
 end
