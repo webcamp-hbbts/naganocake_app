@@ -1,5 +1,5 @@
 class Customer::CartItemsController < ApplicationController
-  
+
   before_action :authenticate_customer! 
   before_action :correct_cartitem, only: [:edit, :update, :destroy]
 
