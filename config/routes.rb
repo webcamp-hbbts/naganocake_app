@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resource :customers, only: [:show, :destroy, :edit, :update]
 
+    put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
+    
+
     delete "/cart_items" => "cart_items#destroy_all"
     get  "/cart_items/confirm" => "cart_items#confirm"
     get  "/customers/confirm" => "customers#confirm"
