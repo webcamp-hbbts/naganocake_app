@@ -18,7 +18,15 @@
           <th scope="row"><%= customer.id %></th>
           <td><%= link_to admin_customer_path(customer.id) do %><%= customer.last_name %><%= customer.first_name %><% end %></td>
           <td><%= customer.email %></td>
-          <td><%= customer.is_deleted %></td>
+          <td>
+            <td>
+              <% if customer.is_deleted %>
+                <p class="text-secondary"><%= "退会" %></p>
+              <% else %>
+                <p class="text-success"><%= "有効" %></p>
+              <% end %>
+           </td>
+          </td>
         </tr>
         <% end %>
       </tbody>

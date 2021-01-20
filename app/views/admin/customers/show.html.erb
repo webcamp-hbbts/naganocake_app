@@ -1,5 +1,3 @@
-<%= @customer.id %>
-
 <div class="container">
   <div class="row">
     <div class="col-2"></div>
@@ -39,9 +37,9 @@
            <td>会員ステータス</td>
            <td>
               <% if @customer.is_deleted %>
-                <%= "無効" %>
+                <p class="text-secondary"><%= "退会" %></p>
               <% else %>
-                <%= "有効" %>
+                <p class="text-success"><%= "有効" %></p>
               <% end %>
            </td>
          </tr>
