@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   root to: "customer/homes#top"
   
   get "/homes/about" => "customer/homes#about"
-  get "/homes/thanks" => "customerhomes#thanks"
+  get "/homes/thanks" => "customer/homes#thanks"
   
   namespace :customer do
   
