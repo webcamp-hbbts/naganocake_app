@@ -32,13 +32,6 @@ class Customer::CartItemsController < ApplicationController
     redirect_to customer_cart_items_path
   end
 
-  private
-  def cart_item_params
-    params.require(:cart_item).permit(:item_id, :customer_id, :amount)
-  end
-
-  private
-
   def correct_cartitem
     @cart_item = CartItem.find(params[:id])
       if @cart_item.customer != current_customer
@@ -46,4 +39,8 @@ class Customer::CartItemsController < ApplicationController
       end
   end
 
+  private
+  def cart_item_params
+    params.require(:cart_item).permit(:item_id, :customer_id, :amount)
+  end
 end
