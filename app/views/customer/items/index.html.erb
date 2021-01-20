@@ -7,3 +7,5 @@
     <%= item.name %>
     ¥<%= ((item.tax_exclude_price * 1.1).floor).to_s(:delimited) %>
 <% end %>
+
+<%= paginate @items %>

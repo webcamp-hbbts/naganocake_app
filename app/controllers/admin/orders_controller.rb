@@ -1,12 +1,15 @@
 class Admin::OrdersController < ApplicationController
 
+    before_action :authenticate_admin!
+    
+
   def index
     # ページ遷移元によって変更
     @path = Rails.application.routes.recognize_path(request.referer)
     if @path[:controller] == "customer"
-      @orders = Order.where(current.user_id)
-     else
-      @orders = Order.all
+      @orders = Order.page(params[:page]).per(10)
+    else
+      @orders = Order.page(params[:page]).per(10)
     end
   end
 
