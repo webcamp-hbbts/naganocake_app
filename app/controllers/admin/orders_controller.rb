@@ -1,6 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
   def index
+    # ページ遷移元によって変更
     @path = Rails.application.routes.recognize_path(request.referer)
     if @path[:controller] == "customer"
       @orders = Order.where(current.user_id)

@@ -71,11 +71,9 @@
          <tr>
            <td>商品合計</td>
             <% @sum = 0 %>
-
             <% @order.order_items.each do |order_item| %>
                <% @sum += order_item.subtotal %>
              <% end %>
-
           <td><%= @sum %>円</td>
          </tr>
          <tr>
@@ -87,7 +85,6 @@
            <td><%= @order.billing %>円</td>
          </tr>
          </table>
-
       </div>
     </div>
     <div class="col-2"></div>
