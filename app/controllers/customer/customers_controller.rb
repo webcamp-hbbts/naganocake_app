@@ -9,15 +9,23 @@ class Customer::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(current_customer.id)
   end
+  
+  def confirm
+    # @customer = Customer.find(current_customer.id)
+  end
 
   def update
     customer = Customer.find(current_customer.id)
     customer.update(customer_params)
-    redirect_to customer_customers_path(current_customer.id)
+    redirect_to customer_customers_path(current_customer)
   end
   
-  def confirm
-     @customer = Customer.find(current_customer.id)
+  def hide
+    customer = current_customer
+    customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private
