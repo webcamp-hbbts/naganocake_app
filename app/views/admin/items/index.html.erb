@@ -1,24 +1,24 @@
 <div class = "container">
-  <div class = "mx-auto">
-    <div class = "row mt-4">
-      <div class = "col-6">
-        <h3>商品一覧</h3>
-      </div>
-      <div class = "col-6">
-        <%= link_to new_admin_item_path do %>
-          <i class="fas fa-plus-circle"></i>
-        <% end %>
-      </div>
+  <div class = "row ml-5">
+    <div class = "col-10 pl-0">
+      <h3 class = "my-4 ml-5">商品一覧</h3>
     </div>
-    <div class = "row">
+    <div class = "col-2 pl-4">
+      <%= link_to new_admin_item_path do %>
+        <i class="fas fa-plus-circle fa-3x mt-3" style="color: silver"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class = "mx-auto px-5">
+    <div class = "row px-5">
       <table class = "table">
         <thead class = "thead-light">
           <tr>
-            <th scope="col">商品ID</th>
-            <th scope="col">商品名</th>
-            <th scope="col">税抜価格</th>
-            <th scope="col">ジャンル</th>
-            <th scope="col">ステータス</th>
+            <th style = "width: 10%">商品ID</th>
+            <th style = "width: 28%">商品名</th>
+            <th style = "width: 12%">税抜価格</th>
+            <th style = "width: 35%">ジャンル</th>
+            <th style = "width: 15%">ステータス</th>
           </tr>
         </thead>
         <tbody>

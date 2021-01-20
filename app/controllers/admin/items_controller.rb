@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :set_genres, only: [:new, :create, :edit, :update]
+  
   def new
     @item = Item.new
   end
@@ -35,6 +36,7 @@ class Admin::ItemsController < ApplicationController
   end
   
   private
+  
   def item_params
     params.require(:item).permit(:image, :name, :description, :genre_id, :tax_exclude_price, :is_active)
   end
