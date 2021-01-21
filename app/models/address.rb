@@ -7,4 +7,12 @@ class Address < ApplicationRecord
         validates :address
         validates :postcode
     end
+
+    def customer_address
+      self.postcode + self.address + self.name
+    end
+    
+
 end
+
+

@@ -19,19 +19,22 @@ Rails.application.routes.draw do
 
   namespace :customer do
 
-    resources :items, only: [:index, :show]
-    resources :cart_items, only: [:create, :index, :update, :destroy]
-    resources :orders, only: [:new, :create, :index, :show]
-    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-    resource :customers, only: [:show, :destroy, :edit, :update]
 
     put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
-    
-
     delete "/cart_items" => "cart_items#destroy_all"
     get  "/cart_items/confirm" => "cart_items#confirm"
     get  "/customers/confirm" => "customers#confirm"
+    get "/orders/confirm" => "orders#confirm"
+    get "/orders/info" => "orders#info"
 
+
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:create, :index, :update, :destroy]
+    resources :orders, only: [:create, :index, :show]
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
+    resource :customers, only: [:show, :destroy, :edit, :update]
+
+   
   end
 
   namespace :admin do

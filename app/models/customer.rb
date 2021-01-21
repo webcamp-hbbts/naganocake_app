@@ -19,6 +19,8 @@ class Customer < ApplicationRecord
         validates :phone_number
     end
     
+    
+    
     validates :is_deleted, inclusion: {in: [true, false]}
     def active_for_authentication?
         super && (self.is_deleted == false)
