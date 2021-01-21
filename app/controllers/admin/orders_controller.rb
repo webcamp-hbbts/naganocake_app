@@ -10,6 +10,8 @@ class Admin::OrdersController < ApplicationController
      when "1"
       @customer = Customer.find(params[:key])
       @orders = @customer.orders.page(params[:page]).per(10)
+    else
+      @orders = Order.page(params[:page]).per(10)
     end
   end
 
