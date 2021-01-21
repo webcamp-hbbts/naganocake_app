@@ -14,7 +14,7 @@
           <%= link_to customer_customers_path, class: 'btn btn-primary' do %>
             退会しない
           <% end %>
-          <%= link_to "退会", customer_customers_hide_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+          <%= link_to "退会する", customer_customers_hide_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
         <% end %>
       </div>
     </div>
