@@ -24,9 +24,9 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(order_params)
     case @order.status
-      when  "入金確認中"
+      when  "入金確認"
         order_items = @order.order_items
-        order_items.each { |order_item| order_item.update(production_status: "制作待ち") }
+        order_items.each { |order_item| order_item.update(production_status: "製作待ち") }
       end
     redirect_to admin_order_path(@order)
   end
