@@ -1,43 +1,46 @@
-<h2>配送先登録／一覧</h2>
-
-
-<%= form_with model: @address, url: customer_addresses_path, local: true do |f| %>
-  <div class = "form-group">
-    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postcode, placeholder: "0000000" %>
+<div class="container">
+  <div class="row">
+    <h2>配送先登録／一覧</h2>
   </div>
-  <div class = "form-group">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0" %>
-  </div>
-  <div class = "form-group">
-    <%= f.label :name, "宛名" %>
-    <%= f.text_field :name, placeholder: "令和道⼦" %>
-  </div>
-    <%= f.submit "新規登録", class: "btn btn-success" %>
-<% end %>
-
-
-<table>
-  <thaed>
-    <tr>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <th></th>
-    </tr>
-  </thaed>
-  <tbody>
-    <% @addresses.each do |address| %>
-    <th><%= address.postcode %></th>
-    <th><%= address.address %></th>
-    <th><%= address.name %></th>
-    <th><%= link_to "編集する", edit_customer_address_path(address), class: "btn btn-success" %></th>
-    <th><%= link_to "削除する", customer_address_path(address), method: :delete,data:{ confirm: "削除しますか？"}, class: "btn btn-danger" %></th>
-
+  <div class="row">
+    <%= form_with model: @address, url: customer_addresses_path, local: true do |f| %>
+      <div class = "form-group col">
+        <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
+        <%= f.text_field :postcode, placeholder: "0000000" %>
+      </div>
+      <div class = "form-group col">
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0" %>
+      </div>
+      <div class = "form-group col">
+        <%= f.label :name, "宛名" %>
+        <%= f.text_field :name, placeholder: "令和道⼦" %>
+      </div>
+        <%= f.submit "新規登録", class: "btn btn-success" %>
     <% end %>
-  </tbody>
+  </div>
+  <div class="row">
+    <table>
+      <thaed>
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th></th>
+        </tr>
+      </thaed>
+      <tbody>
+        <% @addresses.each do |address| %>
+          <th><%= address.postcode %></th>
+          <th><%= address.address %></th>
+          <th><%= address.name %></th>
+          <th><%= link_to "編集する", edit_customer_address_path(address), class: "btn btn-success" %></th>
+          <th><%= link_to "削除する", customer_address_path(address), method: :delete,data:{ confirm: "削除しますか？"}, class: "btn btn-danger" %></th>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-</table>
 
 

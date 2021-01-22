@@ -1,11 +1,17 @@
-<h3>商品一覧<h5>全<%= @items.count %>件</h5></h3>
-
-<% @items.each do |item| %>
-    <%= link_to customer_item_path(item.id) do %>
-      <%= attachment_image_tag item,:image, fallback: "no-image.png", size:"150x150", class:"attachment user profile_image fallback" %>
+<div class="container">
+  <div class="row">
+    <h3>商品一覧<h5>全<%= @items.count %>件</h5></h3>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+      <%= link_to customer_item_path(item.id) do %>
+        <%= attachment_image_tag item,:image, fallback: "no-image.png", size:"150x150", class:"attachment user profile_image fallback" %>
+      <% end %>
+      <%= item.name %>
+      ¥<%= ((item.tax_exclude_price * 1.1).floor).to_s(:delimited) %>
     <% end %>
-    <%= item.name %>
-    ¥<%= ((item.tax_exclude_price * 1.1).floor).to_s(:delimited) %>
-<% end %>
-
-<%= paginate @items %>
+  </div>
+  <div class="row">
+    <%= paginate @items %>
+  </div>
+</div>
