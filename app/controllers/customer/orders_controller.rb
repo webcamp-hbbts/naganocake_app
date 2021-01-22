@@ -12,6 +12,13 @@ class Customer::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.customer_id = current_customer.id
       if @order.save
+        address = current_customer.addresses.new
+        address.name = @order.name
+        address.address = @order.address
+        address.postcode = @order.postcode
+        unless current_customer.addresses.exists?(address: address.address)
+          address.save
+        end
         @cart_items = current_customer.cart_items.all
         @cart_items.each do |cart_item|
           @order_items = @order.order_items.new
