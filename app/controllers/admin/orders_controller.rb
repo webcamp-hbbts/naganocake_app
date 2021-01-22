@@ -23,8 +23,14 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to order_path(@order)
+    case @order.status
+      when  "入金確認中"
+        order_items = @order.order_items
+        order_items.each { |order_item| order_item.update(production_status: "制作待ち") }
+      end
+    redirect_to admin_order_path(@order)
   end
+
 
   private
   def order_params
