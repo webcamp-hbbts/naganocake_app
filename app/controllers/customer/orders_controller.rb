@@ -54,7 +54,7 @@ class Customer::OrdersController < ApplicationController
 
     def show
       @order = Order.find(params[:id])
-      @order_items = OrderItem.all
+      @order_items = @order.order_items
     end
 
     private
