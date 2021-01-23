@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row ml-5">
-    <h3 class = "my-4 ml-5 bg-light">注文履歴詳細</h3>
+    <h3 class = "my-4 ml-5 bg-light"><span style="background-color: #eeeeee;">注文履歴詳細</span></h3>
   </div>
   <div class="row d-flex mx-auto">
     <div class="col-10 pl-5">
-
       <div class="col-8"><table class="table table-borderless">
        <tbody>
          <tr>
@@ -31,8 +30,8 @@
            <td>注文ステータス</td>
            <td>
              <%= form_with model: [:admin, @order], local: true do |f| %>
-              <%= f.select :status, Order.statuses.keys, {prompt: "選択してください"},class: "form-control " %>
-              <td><%= f.submit '更新',class: "btn btn-success"%></td>
+              <%= f.select :status, Order.statuses.keys, {prompt: "選択してください"} %>
+              <%= f.submit '更新',class: "btn btn-success"%>
               <% end %>
             </td>
             <td>
@@ -43,9 +42,8 @@
           </tr>
        </tbody>
      </table></div>
-     <div class="col-4"></div>
-
-     <div class="row">
+      <div class="col-4"></div>
+      <div class="row">
        <div class="col-8">
         <table class="table table-hover">
   　　  　<thead>
@@ -66,8 +64,8 @@
             <td><%= order_item.subtotal.to_s(:delimited) %>円</td>
             <td class="form-group">
               <%= form_with model: [:admin, order_item], local: true do |f| %>
-                <%= f.select :production_status, OrderItem.production_statuses.keys, {prompt: "選択してください"},class: "form-control" %>
-                <td><%= f.submit '更新',class: "btn btn-success"%></td>
+                <%= f.select :production_status, OrderItem.production_statuses.keys, {prompt: "選択してください"} %>
+                <%= f.submit '更新',class: "btn btn-success"%>
               <% end %>
             </td>
             <td>
