@@ -4,7 +4,7 @@
     <title>NaganocakeApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,8 +20,8 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
-              <li>
-                ようこそ、<%= current_customer.last_name %>さん！
+              <li class="nav-item">
+                <span class="nav-link text-dark">ようこそ、<%= current_customer.last_name %>さん！</span>
               </li>
               <li class="nav-item">
                 <%= link_to "マイページ", customer_customers_path, class: 'nav-link text-dark' %>
