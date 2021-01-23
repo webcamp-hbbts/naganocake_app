@@ -45,7 +45,7 @@ class Customer::OrdersController < ApplicationController
       if params[:address_option] == "0"
         @order.postcode = current_customer.postcode
         @order.address = current_customer.address
-        @order.name = current_customer.last_name
+        @order.name = current_customer.last_name + current_customer.first_name
       elsif params[:address_option] == "1"
         @sta = params[:kaito_address].to_i
         @address = Address.find(@sta)
