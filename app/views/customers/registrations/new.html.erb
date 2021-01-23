@@ -1,63 +1,59 @@
 <div class="container">
-  <div class="row">
-    <h3>新規会員登録</h3>
+  <div class="row ml-5">
+    <h3 class="my-4 ml-5">新規会員登録</h3>
   </div>
   <div class="row">
+    <div class = "form-horizontal mx-auto">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "customers/shared/error_messages", resource: resource %>
-        <div class="field row">
-          <div class="col">  
-            <%= f.label :last_name, "(姓)" %>
-            <%= f.text_field :last_name, autofocus: true, class: "name" %>
-          </div>
-          <div class="col">
-            <%= f.label :first_name, "(名)" %>
-            <%= f.text_field :first_name, autofocus: true, class: "name" %>
-          </div>
+        <div class="form-group row">
+            <%= f.label :last_name, "(姓)", class: "col-2" %>
+            <%= f.text_field :last_name, autofocus: true, class: "name col-4 pl-0" %>
+            <%= f.label :first_name, "(名)", class: "col-2" %>
+            <%= f.text_field :first_name, autofocus: true, class: "name col-4 pl-0" %>
         </div>
-        <div class="field row">
-          <div class="col">
-            <%= f.label :last_name_kana, "(セイ)" %>
-            <%= f.text_field :last_name_kana, autofocus: true, class: "name" %>  
-          </div>
-          <div class="col">
-          <%= f.label :first_name_kana, "(メイ)" %>
-          <%= f.text_field :first_name_kana, autofocus: true, class: "name" %>
-          </div>
+        <div class="form-group row">
+            <%= f.label :last_name_kana, "(セイ)", class: "col-2" %>
+            <%= f.text_field :last_name_kana, autofocus: true, class: "name col-4 pl-0" %>         
+            <%= f.label :first_name_kana, "(メイ)", class: "col-2" %>
+            <%= f.text_field :first_name_kana, autofocus: true, class: "name col-4 pl-0" %>           
         </div>
-        <div class="field row">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, class: "email" %>
+        <div class="form-group row">
+            <%= f.label :email, "メールアドレス", class: "col-5" %>
+            <%= f.email_field :email, autofocus: true, class: "email col-7 pl-0" %>
         </div>
-        <div class="field row">
-          <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postcode, autocomplete: "postcode", class: "form_control" %>
+        <div class="form-group row">
+            <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-5" %>
+            <%= f.text_field :postcode, autocomplete: "postcode", class: "form_control col-7 pl-0" %>
         </div>
-        <div class="field row">
-          <%= f.label :address, "住所" %>
-          <%= f.text_field :address, autocomplete: "prefecture", class: "form_control" %>
+        <div class="form-group row">
+            <%= f.label :address, "住所", class: "col-5" %>
+            <%= f.text_field :address, autocomplete: "prefecture", class: "form_control col-7 pl-0" %>  
         </div>
-        <div class="field row">
-          <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
-          <%= f.text_field :phone_number, autofocus: true, class: "name" %>
+        <div class="form-group row">
+            <%= f.label :phone_number, "電話番号(ハイフンなし)", class: "col-5" %>  
+            <%= f.text_field :phone_number, autofocus: true, class: "name col-7 pl-0" %>  
         </div>
-        <div class="field row">
-          <%= f.label :password, "パスワード(6文字以上)" %>
+        <div class="form-group row">
+          <%= f.label :password, "パスワード(6文字以上)", class: "col-5" %>
           <% if @minimum_password_length %>
           <% end %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password col-7 pl-0" %>
         </div>
-        <div class="field row">
-          <%= f.label :password_confirmation, "パスワード(確認用)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="form-group row">
+          <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-5" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password col-7 pl-0" %>
         </div>
-        <div class="actions row">
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+        <div class="form_group row">
+          <%= f.submit "新規登録", class: "btn btn-success col-4 mx-auto" %>
         </div>
     <% end %>
-  </div>
-  <div class="row">
-    <h3>既に登録済みの⽅</h2><br />
-    <%= render "customers/shared/links" %>
+    
+    <div class="row ml-5">
+      <h3 class="my-4 ml-0">既に登録済みの⽅</h3>
+    </div>
+    <div class="row ml-5">
+      <p class="my-4 ml-5"><%= render "customers/shared/links" %></p>
+    </div>
   </div>
 </div>

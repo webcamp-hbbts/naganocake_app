@@ -1,22 +1,24 @@
 <div class="container">
-  <div class="row">
-    <h2>配送先編集</h2>
+  <div class="row ml-5">
+    <h3 class= "my-4 ml-5">配送先編集</h3>
   </div>
   <div class"row">
+  <div class = "form-horizontal mx-auto">
     <%= form_with model: [:customer, @address], local: true do |f| %>
-      <div class = "form-group col">
-        <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-        <%= f.text_field :postcode, placeholder: "0000000" %>
+      <div class = "form-group row">
+        <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-4" %>
+        <%= f.text_field :postcode, placeholder: "0000000", class: "pl-0" %>
       </div>
-      <div class = "form-group col">
-        <%= f.label :address, "住所" %>
-        <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0" %>
+      <div class = "form-group row">
+        <%= f.label :address, "住所", class: "col-4" %>
+        <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0", class: "pl-0" %>
       </div>
-      <div class = "form-group col">
-        <%= f.label :name, "宛名" %>
-        <%= f.text_field :name, placeholder: "令和道⼦" %>
+      <div class = "form-group row">
+        <%= f.label :name, "宛名", class: "col-4" %>
+        <%= f.text_field :name, placeholder: "令和道⼦", class: "pl-0" %>
       </div>
         <%= f.submit "変更内容を保存", class: "btn btn-success" %>
     <% end %>
+  </div>
   </div>
 </div>
