@@ -1,32 +1,32 @@
 <div class="container">
   <div class="row ml-5">
-    <h3 class = "my-4 ml-5">注文履歴</h2>
+    <h3 class = "my-4 ml-5"><span style="background-color:#eee">注文履歴</span></h3>
   </div>
   <div class="row">
-    <table>
+    <table class="table">
       <thead>
-        <tr>
-          <th>注文日</th>
-          <th>配送先</th>
-          <th>注文商品</th>
-          <th>支払い金額</th>
-          <th>ステータス</th>
-          <th>注文詳細</th>
+        <tr style="background-color:#eee">
+          <th class="border">注文日</th>
+          <th class="border">配送先</th>
+          <th class="border">注文商品</th>
+          <th class="border">支払金額</th>
+          <th class="border">ステータス</th>
+          <th class="border">注文詳細</th>
         </tr>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
-        <tr>
+        <tr class="border">
           <td><%= order.created_at %></td>
-    　　　<td><%= order.postcode %><br/><%= order.address %><br/><%= order.name %><br/></td>
-          <td>
+    　　　<td class="border"><%= order.postcode %><br/><%= order.address %><br/><%= order.name %><br/></td>
+          <td class="border">
             <% order.items.each do |item| %>
             <%= item.name %><br />
             <% end %>
           </td>
-          <td><%= order.billing %></td>
-          <td><%= order.status %></td>
-          <td>
+          <td class="border"><%= order.billing %></td>
+          <td class="border"><%= order.status %></td>
+          <td class="border">
             <%= link_to customer_order_path(order), class: 'btn btn-primary' do  %>
               表示する
             <% end %>
@@ -35,5 +35,6 @@
         <% end %>
       </tbody>
     </table>
+  </div>
 </div>
 
