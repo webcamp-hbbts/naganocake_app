@@ -17,7 +17,7 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr class="border">
-          <td><%= order.created_at %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
     　　　<td class="border"><%= order.postcode %><br/><%= order.address %><br/><%= order.name %><br/></td>
           <td class="border">
             <% order.items.each do |item| %>

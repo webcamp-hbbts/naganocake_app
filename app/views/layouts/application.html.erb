@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <div class="wrapper">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -78,8 +79,11 @@
     <%= yield %>
     <footer class="footer">
       <div class="container">
-        <p class="d-flex justify-content-center text-muted mt-3">©ほぼBTS</p>
+        <div class="row d-flex justify-content-center text-muted mt-3">
+          <p>©ほぼBTS</p>
+        </div>
       </div>
     </footer>
+  </div>
   </body>
 </html>
