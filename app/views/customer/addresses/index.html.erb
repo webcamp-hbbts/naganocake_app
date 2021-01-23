@@ -1,41 +1,45 @@
 <div class="container">
-  <div class="row">
-    <h2>配送先登録／一覧</h2>
+  <div class="row ml-5">
+    <h3 class="my-4 ml-5">配送先登録／一覧</h3>
   </div>
   <div class="row">
+    <div class = "form-horizontal ml-5">
     <%= form_with model: @address, url: customer_addresses_path, local: true do |f| %>
-      <div class = "form-group col">
-        <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-        <%= f.text_field :postcode, placeholder: "0000000" %>
+      <div class = "form-group row">
+        <%= f.label :postcode, "郵便番号", class: "col-4" %>
+        <%= f.text_field :postcode, placeholder: "0000000", class: "pl-0" %>
       </div>
-      <div class = "form-group col">
-        <%= f.label :address, "住所" %>
-        <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0" %>
+      <div class = "form-group row">
+        <%= f.label :address, "住所", class: "col-4" %>
+        <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0", class: "pl-0" %>
       </div>
-      <div class = "form-group col">
-        <%= f.label :name, "宛名" %>
-        <%= f.text_field :name, placeholder: "令和道⼦" %>
+      <div class = "form-group row">
+        <%= f.label :name, "宛名", class: "col-4" %>
+        <%= f.text_field :name, placeholder: "令和道⼦", class: "pl-0" %>
+        <%= f.submit "新規登録", class: "btn btn-success col-12 mt-3" %>
       </div>
-        <%= f.submit "新規登録", class: "btn btn-success" %>
     <% end %>
+    </div>
   </div>
-  <div class="row">
-    <table>
-      <thaed>
+  <div class="row px-5 mt-5">
+    <table class="table">
+      <thaed class="thead-light">
         <tr>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>宛名</th>
-          <th></th>
+          <th style="width: 15%">郵便番号</th>
+          <th style="width: 35%">住所</th>
+          <th style="width: 20%">宛名</th>
+          <th style="width: 12%"></th>
         </tr>
       </thaed>
       <tbody>
         <% @addresses.each do |address| %>
+        <tr>
           <th><%= address.postcode %></th>
           <th><%= address.address %></th>
           <th><%= address.name %></th>
           <th><%= link_to "編集する", edit_customer_address_path(address), class: "btn btn-success" %></th>
           <th><%= link_to "削除する", customer_address_path(address), method: :delete,data:{ confirm: "削除しますか？"}, class: "btn btn-danger" %></th>
+          
         <% end %>
       </tbody>
     </table>
