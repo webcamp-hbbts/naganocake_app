@@ -1,44 +1,45 @@
 <div class = "container">
-  <div class = "row ml-5">
-    <div class = "col-10 pl-0">
-      <h3 class = "my-4 ml-5">商品一覧</h3>
-    </div>
-    <div class = "col-2 pl-4">
+  <div class = "row ml-5 d-flex justify-content-between">
+    <h4 class = "col-2 my-4 ml-5 text-center bg-light">商品一覧</h4>
+    <div class = "col-2">
       <%= link_to new_admin_item_path do %>
         <i class="fas fa-plus-circle fa-3x mt-3" style="color: silver"></i>
       <% end %>
     </div>
   </div>
   <div class = "mx-auto px-5">
-    <div class = "row px-5">
-      <table class = "table">
-        <thead class = "thead-light">
+  <div class = "row px-5">
+    <table class = "table">
+      <thead class = "thead-light">
+        <tr>
+          <th style = "width: 10%">商品ID</th>
+          <th style = "width: 28%">商品名</th>
+          <th style = "width: 12%">税抜価格</th>
+          <th style = "width: 35%">ジャンル</th>
+          <th style = "width: 15%">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
           <tr>
-            <th style = "width: 10%">商品ID</th>
-            <th style = "width: 28%">商品名</th>
-            <th style = "width: 12%">税抜価格</th>
-            <th style = "width: 35%">ジャンル</th>
-            <th style = "width: 15%">ステータス</th>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td><%= item.tax_exclude_price.to_s(:delimited) %></td>
+            <td><%= item.genre.name %></td>
+            <% if item.is_active %>
+              <td class="text-success">販売中</td>
+            <% else %>
+              <td class="text-secondary">販売停止中</td>
+            <% end %>
           </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= item.id %></td>
-              <td><%= link_to item.name, admin_item_path(item.id) %></td>
-              <td><%= item.tax_exclude_price.to_s(:delimited) %></td>
-              <td><%= item.genre.name %></td>
-              <% if item.is_active %>
-                <td class="text-success">販売中</td>
-              <% else %>
-                <td class="text-secondary">販売停止中</td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "mx-auto">
+      <%= paginate @items %>
     </div>
   </div>
 </div>
-
-<%= paginate @items %>
