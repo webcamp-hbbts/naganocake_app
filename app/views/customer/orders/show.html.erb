@@ -35,7 +35,7 @@
             <% @order.order_items.each do |order_item| %>
             <% @sum += order_item.subtotal %>
             <% end %>
-          <td class="border"><%= @sum %>円</td>
+          <td class="border"><%= @sum.floor.to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <td style="background-color:#eee">送料</td>
@@ -43,7 +43,7 @@
         </tr>
         <tr>
           <td style="background-color:#eee"><strong>ご請求額</strong></td>
-          <td class="border"><%= @order.billing %>円</td>
+          <td class="border"><%= @order.billing.floor.to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
@@ -65,9 +65,9 @@
   　　      <% @order_items.each do |order_item| %>
             <tr>
               <td class="border"><%= order_item.item.name %></td>
-              <td class="border"><%= order_item.tax_included_price %></td>
+              <td class="border"><%= order_item.tax_included_price.floor.to_s(:delimited) %></td>
               <td class="border"><%= order_item.amount %></td>
-              <td class="border"><%= order_item.subtotal %>円</td>
+              <td class="border"><%= order_item.subtotal.to_s(:delimited) %>円</td>
             </tr>
           <% end %>
         </tbody>
