@@ -59,7 +59,7 @@
   　　    <% @order_items.each do |order_item| %>
           <tr>
             <th><%= order_item.item.name %></th>
-            <td><%= order_item.tax_included_price.to_s(:delimited) %></td>
+            <td><%= ((order_item.tax_included_price * 1.1 ).floor).to_s(:delimited) %></td>
             <td><%= order_item.amount %></td>
             <td><%= order_item.subtotal.to_s(:delimited) %>円</td>
             <td class="form-group">
