@@ -1,40 +1,69 @@
-<%= form_with model: [:admin,@customer], local:true do |f| %>
+<div class="container">
+  <div class="row ml-5">
+    <h3 class = "my-4 ml-5 bg-light"><%= @customer.full_name %>さんの会員情報</h3>
+  </div>
 
-  <div class="field">
-    <%= f.label :last_name, "(姓)" %><br />
-    <%= f.text_field :last_name, class: "name", value: @customer.last_name %>
-    <%= f.label :first_name, "(名)" %><br />
-    <%= f.text_field :first_name, autofocus: true, class: "name", value: @customer.first_name %>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-7">
+      <%= form_with model: [:admin,@customer], local:true do |f| %>
+    <table class="table table-borderless">
+    <div class="field">
+     <tr>
+      <td><%= f.label :last_name, "氏名" %></td>
+      <td><%= f.text_field :last_name, class: "name rounded", value: @customer.last_name %></td>
+      <td><%= f.text_field :first_name, autofocus: true, class: "name rounded", value: @customer.first_name %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :last_name, "フリガナ" %></td>
+      <td><%= f.text_field :last_name_kana, autofocus: true, class: "name rounded", value: @customer.last_name_kana %></td>
+      <td><%= f.text_field :first_name_kana, autofocus: true, class: "name rounded", value: @customer.first_name_kana %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :postcode, "郵便番号" %></td>
+      <td><%= f.text_field :postcode, autocomplete: "postcode", class: "form_control rounded", value: @customer.postcode %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :address, "住所" %></td>
+      <td><%= f.text_field :address, autocomplete: "prefecture", class: "form_control rounded", value: @customer.address %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :phone_number, "電話番号" %></td>
+      <td><%= f.text_field :phone_number, autofocus: true, class: "name rounded", value: @customer.phone_number %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :phone_number, "会員ステータス" %></td>
+      <td><%= f.radio_button :is_deleted, :false %><%= f.label :is_deleted, "有効" %><%= f.radio_button :is_deleted, :true %><%= f.label :is_deleted, "無効" %></td>
+     </tr>
+    </div>
+    <div class="field">
+     <tr>
+      <td><%= f.label :email, "メールアドレス" %></td>
+      <td><%= f.email_field :email, autofocus: true, class: "email rounded", value: @customer.email %></td>
+     </tr>
+    </div>
+    <div></div>
+    <div class="actions field">
+      <tr>
+        <td></td>
+        <td><%= f.submit "変更を保存", class: "btn-success rounded my-3 py-3 px-4" %></td>
+      </tr>
+
+    </div>
+  </table>
+  <% end %>
   </div>
-  <div class="field">
-    <%= f.label :last_name_kana, "(セイ)" %><br />
-    <%= f.text_field :last_name_kana, autofocus: true, class: "name", value: @customer.last_name_kana %>
-    <%= f.label :first_name_kana, "(メイ)" %><br />
-    <%= f.text_field :first_name_kana, autofocus: true, class: "name", value: @customer.first_name_kana %>
+  <div class="col-4"></div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "email", value: @customer.email %>
-  </div>
-  <div class="field">
-    <%= f.label :postcode, "郵便番号" %><br />
-    <%= f.text_field :postcode, autocomplete: "postcode", class: "form_control", value: @customer.postcode %>
-  </div>
-  <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address, autocomplete: "prefecture", class: "form_control", value: @customer.address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number, "電話番号" %><br />
-    <%= f.text_field :phone_number, autofocus: true, class: "name", value: @customer.phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :is_deleted, "有効" %>
-    <%= f.radio_button :is_deleted, :false %>
-    <%= f.label :is_deleted, "無効" %>
-    <%= f.radio_button :is_deleted, :true %>
-  </div>
-  <div class="actions">
-    <%= f.submit "変更を保存" %>
-  </div>
-<% end %>
+</div>
+
