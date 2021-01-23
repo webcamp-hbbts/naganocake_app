@@ -24,7 +24,7 @@
             <%= item.name %><br />
             <% end %>
           </td>
-          <td class="border"><%= order.billing %></td>
+          <td class="border"><%= order.billing.to_s(:delimited) %></td>
           <td class="border"><%= order.status %></td>
           <td class="border">
             <%= link_to customer_order_path(order), class: 'btn btn-primary' do  %>
