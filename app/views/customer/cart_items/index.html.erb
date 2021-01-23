@@ -1,13 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <div>
-        <h4>ショッピングカート</h4>
-        <div><%= link_to "カートを空にする", "/customer/cart_items", method: :delete, class: "btn btn-danger" %></div>
+  <div class="row ml-5">
+        <h3 class="my-4 ml-5"><span style="background-color:#eee">ショッピングカート</span></h3>
+  </div>    
+      <div class="d-flex justify-content-end">
+        <%= link_to "カートを空にする", "/customer/cart_items", method: :delete, class: "btn btn-danger" %>
       </div>
-
-    <table class="table table-hover">
+      </div>
+  <div class="row mt-5">
+    <div class="col-2"></div>
+    <div class="col-8"><table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">商品名</th>
@@ -37,19 +38,34 @@
         <% end %>
       </tbody>
     </table>
-
-    <div>
-      <div><%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %></div>
-        <div>
-            <td>合計金額</td>
-            <% @sum = 0 %>
-            <% @cart_items.each do |cart_item| %>
-            <% @sum += cart_item.subtotal%>
-            <% end %>
-            <td><%= @sum.to_i %></td>
+    </div>
+  </div>
+  
+    <div class="row ml-5">
+      <div class="col-2">
+      </div>
+        <div class="col-8">
+          <div><%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %></div>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>合計金額</th>
+                    <td><% @sum = 0 %>
+                    <% @cart_items.each do |cart_item| %>
+                    <% @sum += cart_item.subtotal%>
+                    <% end %><%= @sum.to_i %></td>
+                  </tr>
+                  </tbody>
+              </table>
+        </div>
+        <div class="col-2">
+      
         </div>
     </div>
-    <div><%= link_to "情報入力に進む", customer_orders_info_path, class: "btn btn-success" %></div>
+    
+    <div class="row mt-5">
+    <div class="mx-auto"><%= link_to "情報入力に進む", customer_orders_info_path, class: "btn btn-success" %></div>
+    </div>
     </div>
     <div class="col-2"></div>
   </div>
